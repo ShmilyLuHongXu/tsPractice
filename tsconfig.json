@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target":"es2016",//指定编译的ECMAScript目标版本
+    "module":"commonjs",//模块化
+    "lib":["es2015"],//编译过程中需要引入的库文件的列表
+    "outDir": "./dist", // 指定输出目录
+  },
+  "include": [//编译文件包含哪些文件
+        "src/**/*"
+    ],
+    "exclude": [//编译文件排除哪些文件
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}
