@@ -8,30 +8,52 @@ type jockerArray = jockerObj[]
  * 创建扑克牌(不包含大小王)
  */
 function creatPocker(): jockerArray {
-    const dock: jockerArray = []
+    const deck: jockerArray = []
     for (let i = 1; i <= 13; i++) {
-        dock.push({
+        deck.push({
             jockerNumber: i,
             color: '♠️'
         })
-        dock.push({
+        deck.push({
             jockerNumber: i,
             color: '♣️'
         })
-        dock.push({
+        deck.push({
             jockerNumber: i,
             color: '♥️'
         })
-        dock.push({
+        deck.push({
             jockerNumber: i,
             color: '♦️'
         })
 
     }
-    console.log(123)
-    console.log(dock)
-    return dock
+    return deck
 }
-creatPocker()
-console.log(123)
-console.log(123)
+function printDocker(deck: jockerArray) {
+    let result = '\n'
+    deck.forEach((card, i) => {
+        let str = card.color
+        if (card.jockerNumber <= 10) {
+            str += card.jockerNumber
+        }
+        if (card.jockerNumber === 11) {
+            str += 'J'
+        }
+        if (card.jockerNumber === 12) {
+            str += 'Q'
+        }
+        if (card.jockerNumber === 13) {
+            str += 'K'
+        }
+        result += str + '\t'
+
+        if ((i + 1) % 4 === 0) {
+            result += '\n'
+        }
+    })
+    console.log(result)
+
+}
+let jeckarr = creatPocker()
+printDocker(jeckarr)
