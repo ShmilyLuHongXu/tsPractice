@@ -4,6 +4,8 @@
     "module":"commonjs",//模块化
     "lib":["es2015"],//编译过程中需要引入的库文件的列表
     "outDir": "./dist", // 指定输出目录
+    "removeComments": true,//移除编译结果的注释
+    "esModuleInterop": true,//兼容commonjs，设置为true后，可以使用es6的导入导出模式来兼容老版本的commonjs导入导出模式
   },
   "include": [//编译文件包含哪些文件
         "src/**/*"

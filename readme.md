@@ -163,6 +163,29 @@ enum '枚举名称' {
 
 - 在 ts 中，导入和导出模块，都使用 es6 模块话标准
 
+# 编译结果中的模块化
+
+- 如果编译结果模块化标准设置的是 es6 ：那么在编译结果中没有变化
+
+- 如果编译结果模块化标准设置的是 commonjs：
+
+- 在编译结果中，导出的声明会变成 **exports** 的属性，默认导出则会变成**exports**的 default 属性
+- 编译结果的导入中，会拿到整个的导入对象，然后依次去取导出的属性，默认导入则会变成导入对象的**default**属性
+
+# 解决默认导入的问题
+
+- 对于一下使用**module.exports={}**方式导出的模块，例如 fs 模块，使用 **import fs from ’fs‘** 时报错，解决办法就是
+
+- 就是在配置文件中添加配置 **esModuleInterop**配置设置为 true 或者使用 **import {readFile} from 'fs'** 或 **import \* as fs from 'fs'** 方式导入即可结局错误
+
+- 目的就是项目中所有的导入导出标准全部使用 es6 标准，保持统一性
+
+# 如何在 ts 中书写 commonjs
+
+- 导出 `export = {xxx}`
+
+- 导入 `import xxx  = require('xxx')` 或 `import xxx from 'xxx`' _注意使用后者在配置项中需要设置 esModuleInterop 配置项为 true_
+
 # 总结
 
 Typescript 是可选的、静态的类型系统

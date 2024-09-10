@@ -1,19 +1,19 @@
-//按需导出
-export const numbers = '123'
+// //按需导出
+// export const numbers = '123'
 
-export function sum(a: number, b: number) {
-    return a + b
-}
+// export function sum(a: number, b: number) {
+//     return a + b
+// }
 
-function complair(a: number, b: number) {
-    return a === b
-}
-//默认导出
-export default {
-    a: 123,
-    b: '456',
-    complair
-}
+// function complair(a: number, b: number) {
+//     return a === b
+// }
+// //默认导出
+// export default {
+//     a: 123,
+//     b: '456',
+//     complair
+// }
 // es6
 // 默认导出与导入 注意:每个模块中只允许使用唯一的一次 export default。
 // // m1.js
@@ -62,3 +62,9 @@ export default {
 // // 导入模块成员
 // import { str1 } from './m1.js';
 // console.log(str1);  // 输出 's1'
+
+// 在ts中使用commonjs
+// export = {
+//     a: 1,
+//     b: 2
+// }
