@@ -1,4 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const myModules = require("./myModules");
-console.log(myModules.a);
+let u = {
+    id: '123',
+    name: 'dfff',
+    age: 12
+};
+let arr = [1, 2, 3];

@@ -186,6 +186,138 @@ enum '枚举名称' {
 
 - 导入 `import xxx  = require('xxx')` 或 `import xxx from 'xxx`' _注意使用后者在配置项中需要设置 esModuleInterop 配置项为 true_
 
+# 接口和类型兼容性
+
+## 拓展类型-接口- interface
+
+> 拓展类型：类型别名、枚举、接口、类
+
+**接口**
+
+- 用于约束 类、对象 、函数的契约（标准）
+
+- 契约（标准）的形式：
+  - API 文档：弱标准
+  - 代码的约束，强标准
+
+### 接口约束对象
+
+```typescript
+//接口约束对象
+interface User {
+  name: string;
+  age: number;
+}
+// 类型别名约束对象
+type User2 = {
+  name: string;
+  age: number;
+};
+```
+
+- 二者在约束对象上没有什么差别，主要差别在约束**类**上
+
+- 接口和类型别名不会出现在编译结果中
+
+### 接口约束函数
+
+1. 约束在对象中的函数
+
+```typescript
+//接口约束函数
+interface User {
+  name: string;
+  age: number;
+  sayHello: () => void;
+}
+// 类型别名约束函数
+type User2 = {
+  name: string;
+  age: number;
+  sayHello: () => void;
+};
+```
+
+2. 约束外部函数
+
+```typescript
+//约束函数
+
+interface Condition {
+  (n: number): boolean;
+}
+// type Condition = (n: number) => boolean
+// type Condition = {
+//   (n: number): boolean;
+// };
+function sum(numbers: number[], callBack: Condition) {
+  let s = 0;
+  numbers.forEach((n) => {
+    if (callBack(n)) {
+      s += n;
+    }
+  });
+  return s;
+}
+let result = sum([1, 2, 3, 4], (n) => n % 2 !== 0);
+console.log(result);
+```
+
+### 接口可以继承
+
+- 让接口可以 获取 另一个接口的所有成员
+
+- 可以通过接口之间的继承，实现多个接口的组合
+
+- 使用类型别名可以实现类似的组合效果：使用符号 & **交叉类型**
+
+```typescript
+// interface T1 {
+//     t1: number
+// }
+// interface T2 {
+//     t2: string
+// }
+// interface T3 extends T1, T2 {
+//     t3: boolean
+// }
+
+type T1 = {
+  t1: number;
+};
+type T2 = {
+  t2: string;
+};
+type T3 = {
+  t3: boolean;
+} & T1 &
+  T2;
+// 在继承类型中 继承类型覆盖父类型  会发现 接口 和 类型 接口实现继承的区别
+// type T3 = {
+//    t1:string ;//这里利用已有类型t1进行覆盖
+//   t3: boolean;
+// } & T1 &
+//   T2;
+
+let u: T3 = {
+  t3: false,
+  t1: 3,
+  t2: "e",
+};
+```
+
+- 他们的区别是：
+  - 类型别名-交叉类型：使用交叉类型会把相同成员的类型进行交叉
+  - 接口：子接口不能覆盖父接口的成员
+
+### readonly 只读修饰符
+
+- 修饰的目标是只读的不可修改
+
+- 只读修饰符不存在编译结果中
+
+- 查看前方示例
+
 # 总结
 
 Typescript 是可选的、静态的类型系统
