@@ -1,18 +1,20 @@
 {
   "compilerOptions": {
-    "target":"es2016",//指定编译的ECMAScript目标版本
-    "module":"ES2015",//模块化
-    "lib":["es2015"],//编译过程中需要引入的库文件的列表
+    "target": "es2016", //指定编译的ECMAScript目标版本
+    "module": "NodeNext", //模块化
+    "lib": [
+      "es2015"
+    ], //编译过程中需要引入的库文件的列表
     "outDir": "./dist", // 指定输出目录
-    "esModuleInterop": true,//模块化兼容
-    "moduleResolution":"node",//模块解析策略
-    "removeComments":true,//删除注释
+    "esModuleInterop": true, //模块化兼容
+    "moduleResolution": "NodeNext", //模块解析策略
+    "removeComments": true, //删除注释
   },
-  "include": [//编译文件包含哪些文件
-        "src/**/*"
-    ],
-    "exclude": [//编译文件排除哪些文件
-        "node_modules",
-        "**/*.spec.ts"
-    ]
+  "include": [ //编译文件包含哪些文件
+    "src/**/*"
+  ],
+  "exclude": [ //编译文件排除哪些文件
+    "node_modules",
+    "**/*.spec.ts"
+  ]
 }

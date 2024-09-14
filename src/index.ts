@@ -1,4 +1,4 @@
 
-import { creatPocker, printDocker } from "./funtions"
+import { creatPocker, printDocker } from './funtions'
 let jeckarr = creatPocker()
 printDocker(jeckarr)
