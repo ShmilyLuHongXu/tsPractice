@@ -9,6 +9,8 @@
     "esModuleInterop": true, //模块化兼容
     "moduleResolution": "NodeNext", //模块解析策略
     "removeComments": true, //删除注释
+    "strictNullChecks": true, //是否启用严格的 null检查模式
+    "strictPropertyInitialization": true, //是否类的非undefined属性已经在构造函数里初始化
   },
   "include": [ //编译文件包含哪些文件
     "src/**/*"

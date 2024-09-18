@@ -1,4 +1,3 @@
-
-import { creatPocker, printDocker } from './funtions'
-let jeckarr = creatPocker()
-printDocker(jeckarr)
+import { deck } from './deck'
+let d = new deck()
+d.printDocker()
