@@ -1,26 +1,27 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
+    "target": "es5", //指定编译的ECMAScript目标版本
+    "lib": [ //编译过程中需要引入的库文件的列表
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
+    "downlevelIteration": true,
+    "allowJs": true, //是否允许编译javascript文件
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": true, //区分引入文件的大小写
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "moduleResolution": "node", //模块解析方式
+    "resolveJsonModule": true, //是否允许解析JSON模块
+    "isolatedModules": true, //是不是把每个文件当作一个模块
+    "noEmit": true, //不生成js文件
+    "jsx": "react-jsx" //解析jsx的方式
   },
-  "include": [
+  "include": [ //指定编译文件或排除指定编译文件
     "src"
   ]
 }

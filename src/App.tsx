@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { ChessComp } from "./components/ChessComp/ChessComp";
+import { chessType } from "./types/enums";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ChessComp type={chessType.none} onclick={() => {
+        console.log("1")
+      }} />
+      <ChessComp type={chessType.red} onclick={() => {
+        console.log("2")
+      }} />
+      <ChessComp type={chessType.black} onclick={() => {
+        console.log("3")
+      }} />
     </div>
   );
 }
