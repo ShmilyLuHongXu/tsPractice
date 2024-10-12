@@ -1,19 +1,24 @@
-import { ChessComp } from "./components/ChessComp/ChessComp";
+import { BordComp } from "./components/BordComp/BordComp";
 import { chessType } from "./types/enums";
+
 function App() {
+  let chesses: chessType[] = [
+    chessType.red,
+    chessType.none,
+    chessType.black,
+    chessType.red,
+    chessType.black,
+    chessType.red,
+    chessType.none,
+    chessType.red,
+    chessType.none,
+  ]
   return (
     <div className="App">
-      <ChessComp type={chessType.none} onclick={() => {
-        console.log("1")
-      }} />
-      <ChessComp type={chessType.red} onclick={() => {
-        console.log("2")
-      }} />
-      <ChessComp type={chessType.black} onclick={() => {
-        console.log("3")
-      }} />
+      <BordComp isGameOver={false} chesses={chesses} onclick={(index) => console.log(index)} />
     </div>
   );
 }
+
 
 export default App;
