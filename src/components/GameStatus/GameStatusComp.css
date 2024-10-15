@@ -1,0 +1,31 @@
+.game-status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.status{
+    font-size: 20px;
+    text-align: center;
+    width: 150px;
+}
+.status.red{
+    color: red;
+}
+.status.black{
+    color: black;
+}
+.win{
+    font-size: 20px;
+    text-align: center;
+    width: 150px;
+}
+.win.red{
+    color: red;
+}
+.win.black{
+    color: black;
+}
+.draw{
+    font-size: 20px;
+    text-align: center;
+}
